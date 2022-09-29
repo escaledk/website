@@ -1,4 +1,4 @@
-import { auth } from '../../services/firebase/app';
+import { auth } from '../../config/firebase/app';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { IAuthStore, setAuthStore } from './auth.types';
 

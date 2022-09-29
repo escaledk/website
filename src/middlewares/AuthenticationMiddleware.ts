@@ -1,6 +1,6 @@
 import { Middleware } from 'next-api-middleware';
 import { InvalidTokenError } from '../errors/InvalidTokenError';
-import { adminAuth } from '../services/firebase/admin';
+import { adminAuth } from '../config/firebase/admin';
 
 export const AuthenticationMiddleware: Middleware = async (req, res, next) => {
   const idToken = req.headers.authorization?.replace('Bearer', '');

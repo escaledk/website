@@ -1,18 +1,16 @@
 import { ValidationError } from 'class-validator';
-import { IHttpErrorResponse } from '../../interfaces/IHttpError';
+import { IHttpError } from '../../interfaces/IHttpError';
 
 // TODO: only return stackTrace when in debug mode
-export const transformToHttpError = (type = 'InternalServerError', message: string, stackTrace?: string): IHttpErrorResponse => {
-  return {
-    errors: [{ type, message, stackTrace }],
-  };
+export const transformErrorObject = (type = 'InternalServerError', message: string, stackTrace?: string): IHttpError => {
+  return { type, message, stackTrace };
 };
 
 export const transformValidationError = (validationErrors: Array<ValidationError>) => {
-  return validationErrors.reduce((result, err: ValidationError): IHttpErrorResponse[] => {
+  return validationErrors.reduce((result, err: ValidationError): IHttpError[] => {
     Object.entries(err.constraints!).map(([_, value]) => {
-      result.push(transformToHttpError('ValidationError', value));
+      result.push(transformErrorObject('ValidationError', value));
     });
     return result;
-  }, [] as IHttpErrorResponse[]);
+  }, [] as IHttpError[]);
 };
