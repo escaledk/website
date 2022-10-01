@@ -1,7 +1,9 @@
 import { Box, Button, FormControl, FormErrorMessage, FormHelperText, FormLabel, Input } from '@chakra-ui/react';
-import type { NextPage } from 'next';
+import type { GetServerSideProps, NextPage } from 'next';
+import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import { Modal } from '../components/modal';
+import { withPageRedirectMiddleware } from '../middlewares/PageRedirectMiddleware';
 import { useAuthStore } from '../stores/auth';
 import { selectAuthenticate, selectIsAuthenticating } from '../stores/auth/auth.selectors';
 
@@ -10,6 +12,7 @@ const Home: NextPage = () => {
   const [errors, setErrors] = useState({ email: '', password: '' });
   const authenticate = useAuthStore(selectAuthenticate);
   const isAuthenticating = useAuthStore(selectIsAuthenticating);
+  const router = useRouter();
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setCredentials({ ...credentials, [event.target.name]: event.target.value });
@@ -17,7 +20,9 @@ const Home: NextPage = () => {
 
   const handleSubmit = (event?: React.FormEvent<HTMLFormElement>) => {
     event?.preventDefault();
-    authenticate(credentials.email, credentials.password);
+    authenticate(credentials.email, credentials.password).then((e) => {
+      router.push('/');
+    });
   };
 
   const { email, password } = credentials;
@@ -49,3 +54,11 @@ const Home: NextPage = () => {
 };
 
 export default Home;
+
+const serverSideProps: GetServerSideProps = async (context) => {
+  return {
+    props: {},
+  };
+};
+
+export const getServerSideProps = withPageRedirectMiddleware(serverSideProps);

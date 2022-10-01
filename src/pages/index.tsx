@@ -9,11 +9,8 @@ import { selectAuthenticate, selectIsAuthenticated } from '../stores/auth/auth.s
 
 const Home: NextPage = () => {
   const isAuthenticated = useAuthStore(selectIsAuthenticated);
-  const authenticate = useAuthStore(selectAuthenticate);
 
-  useEffect(() => {
-    authenticate('', '');
-  }, []);
+  console.log(isAuthenticated);
 
   return (
     <div className={styles.container}>

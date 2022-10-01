@@ -3,6 +3,10 @@ import { IUser } from '../interfaces/IUser';
 declare module 'iron-session' {
   interface IronSessionData {
     user?: IUser;
+    auth?: {
+      accessToken: string;
+      idToken: string;
+    };
   }
 }
 

@@ -2,15 +2,16 @@ import { withIronSessionSsr } from 'iron-session/next';
 import { GetServerSideProps } from 'next';
 import { sessionConfig } from '../config/session';
 
-export const withPageSessionMiddleware = (handler: GetServerSideProps) =>
+export const withPageRedirectMiddleware = (handler: GetServerSideProps) =>
   withIronSessionSsr((context) => {
     const { user } = context.req.session;
 
-    if (!user?.email) {
-      context.req.session.destroy();
+    console.log(user);
+
+    if (user?.email) {
       return {
         redirect: {
-          destination: '/login',
+          destination: '/',
           permanent: true,
         },
       };
