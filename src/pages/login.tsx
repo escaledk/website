@@ -18,8 +18,8 @@ const Home: NextPage = () => {
     setCredentials({ ...credentials, [event.target.name]: event.target.value });
   };
 
-  const handleSubmit = (event?: React.FormEvent<HTMLFormElement>) => {
-    event?.preventDefault();
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
     authenticate(credentials.email, credentials.password).then((e) => {
       router.push('/');
     });

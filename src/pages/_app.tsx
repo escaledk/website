@@ -1,18 +1,21 @@
-import { ChakraProvider } from '@chakra-ui/react';
-
-import { GlobalStyles, PageWrapper } from '../../styles/global.styles';
+import NextNProgress from 'nextjs-progressbar';
+import { ThemeProvider } from 'styled-components';
+import { GlobalStyles } from '../../styles/global.styles';
 import { Hydration } from '../components/hydration';
+import { PageWrapper } from '../components/pageWrapper';
+import { theme } from '../config/theme';
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }: any) {
   return (
-    <ChakraProvider>
+    <ThemeProvider theme={theme}>
       <GlobalStyles />
-      <PageWrapper>
-        <Hydration>
+      <NextNProgress color={theme.colors.primary} height={4} />
+      <Hydration>
+        <PageWrapper>
           <Component {...pageProps} />
-        </Hydration>
-      </PageWrapper>
-    </ChakraProvider>
+        </PageWrapper>
+      </Hydration>
+    </ThemeProvider>
   );
 }
 

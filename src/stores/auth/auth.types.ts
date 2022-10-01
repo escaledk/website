@@ -1,7 +1,6 @@
 import { IUser } from '../../interfaces/IUser';
-import { IStore } from '../IStore';
 
-export interface IAuthStore extends IStore {
+export interface IAuthStore {
   isAuthenticated: boolean;
   isAuthenticating: boolean;
   authenticate: (email: string, password: string) => Promise<void>;

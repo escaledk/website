@@ -16,12 +16,6 @@ export function createStore<T>({ store, name }: CreateStore<T>) {
       name,
       serialize: (state) => encode(JSON.stringify(state)),
       deserialize: (storedState) => JSON.parse(decode(storedState)),
-      getStorage: () => ({
-        // Returning a promise from getItem is necessary to avoid issues with hydration
-        getItem: async (name: string) => localStorage.getItem(name),
-        setItem: (name: string, value: string) => localStorage.setItem(name, value),
-        removeItem: (name: string) => localStorage.removeItem(name),
-      }),
     })
   );
 }
