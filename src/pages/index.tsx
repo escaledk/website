@@ -75,7 +75,10 @@ const Home: NextPage = () => {
 
 export default Home;
 
-const serverSideProps: GetServerSideProps = async () => {
+const serverSideProps: GetServerSideProps = async ({ req }) => {
+  const { user } = req.session;
+  console.log(user);
+
   return {
     props: {},
   };
