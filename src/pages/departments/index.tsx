@@ -1,11 +1,9 @@
 import type { GetServerSideProps, NextPage } from 'next';
-import Head from 'next/head';
-import Image from 'next/image';
 
 import { withPageSessionMiddleware } from '../../middlewares/PageSessionMiddleware';
 
 const Departments: NextPage = () => {
-  return <div>dashboard</div>;
+  return <div>department</div>;
 };
 
 export default Departments;
