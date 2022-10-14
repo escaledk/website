@@ -3158,6 +3158,11 @@ next@12.3.1:
     "@next/swc-win32-ia32-msvc" "12.3.1"
     "@next/swc-win32-x64-msvc" "12.3.1"
 
+nextjs-breadcrumbs@^1.1.9:
+  version "1.1.9"
+  resolved "https://registry.yarnpkg.com/nextjs-breadcrumbs/-/nextjs-breadcrumbs-1.1.9.tgz#6b50c3bcf0db6b59985d89cfb95b69b6bc4f4bb5"
+  integrity sha512-kzK1bysO5dqdlsPgJ84XgAfAFKWEqlXcSWROwuR1BqST8ibcmLc3LKgak8hiO2DH2mMdd0wTR7oCkebReyBQTg==
+
 nextjs-progressbar@^0.0.14:
   version "0.0.14"
   resolved "https://registry.yarnpkg.com/nextjs-progressbar/-/nextjs-progressbar-0.0.14.tgz#cc2630ee4e9dec598314394bd0fffb0cbfc40444"

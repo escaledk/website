@@ -22,7 +22,7 @@ const Home: NextPage = () => {
 
   return (
     <Page center>
-      <Surface>
+      <Surface shadow="high" padding={8}>
         <Styled.Form action="/api/auth/login" method="POST">
           <Text size="xLarge">Login</Text>
           <Inputter.InputGroup>
