@@ -1,7 +1,12 @@
 import React from 'react';
 
-export interface IInputProps {
+export interface IInputFieldProps {
   value: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  validation?: any;
+  name?: string;
+  type?: 'text' | 'password' | 'email';
+}
+
+export interface IInputGroupProps {
+  children: React.ReactNode[];
 }

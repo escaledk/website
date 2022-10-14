@@ -1,45 +1,57 @@
 import { useState } from 'react';
+import axios, { AxiosRequestConfig } from 'axios';
 
-interface IUseFetch<T> {
-  fetch: (body: any) => Promise<void>;
-  response: Response | null;
-  body: T | null;
+interface IUserFetchState<T> {
   isLoading: boolean;
-  error?: Error | null;
+  response: {
+    statusCode: number;
+    body: T;
+  } | null;
+  error: Error | null;
 }
-export const useFetch = <T>(url: string, method: string): IUseFetch<T> => {
-  const [isLoading, setIsLoading] = useState(false);
-  const [response, setResponse] = useState<Response | null>(null);
-  const [bodyContent, setBodyContent] = useState<T | null>(null);
-  const [error, setError] = useState<Error | null>(null);
 
-  const fetchCallback = async (body: any) => {
-    resetState();
-    setIsLoading(true);
+const init: IUserFetchState<any> = {
+  isLoading: false,
+  response: null,
+  error: null,
+};
+
+export function useFetch<T>(url: string): [state: IUserFetchState<any>, execute: (options: AxiosRequestConfig<T>) => Promise<Response | undefined>] {
+  const [state, setState] = useState<IUserFetchState<T>>(init);
+
+  const execute = async (options: AxiosRequestConfig<any>) => {
+    setState((state) => ({
+      ...state,
+      isLoading: true,
+      error: null,
+      response: null,
+    }));
     try {
-      const res = await fetch(url, { method: method, body: JSON.stringify(body) });
-      const bodyContent = await res.json();
-      setResponse(res);
-      setBodyContent(bodyContent);
+      if (state.isLoading) return;
+
+      const res = await axios(url, options);
+      console.log(res);
+      setState((state) => ({
+        ...state,
+        isLoading: false,
+        error: null,
+        response: {
+          statusCode: res.status,
+          body: res.data,
+        },
+      }));
+
+      return res as any;
     } catch (error) {
-      setError(error as Error);
-    } finally {
-      setIsLoading(false);
+      console.log(error);
+      setState((state) => ({
+        ...state,
+        isLoading: false,
+        error: error as any,
+        response: null,
+      }));
     }
   };
 
-  const resetState = () => {
-    setIsLoading(false);
-    setResponse(null);
-    setBodyContent(null);
-    setError(null);
-  };
-
-  return {
-    fetch: fetchCallback,
-    response,
-    isLoading,
-    body: bodyContent,
-    error,
-  };
-};
+  return [state, execute];
+}

@@ -1,55 +1,48 @@
-import { Box, Button, FormControl, FormErrorMessage, FormHelperText, FormLabel, Input } from '@chakra-ui/react';
 import type { GetServerSideProps, NextPage } from 'next';
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
-import { Modal } from '../components/modal';
+import * as Styled from '../styles/login.styles';
+import { Surface } from '../components/surface';
+import { Text } from '../components/text';
+import { Page } from '../components/page';
+
 import { withPageRedirectMiddleware } from '../middlewares/PageRedirectMiddleware';
-import { useAuthStore } from '../stores/auth';
-import { selectAuthenticate, selectIsAuthenticating } from '../stores/auth/auth.selectors';
+import * as Inputter from '../components/input';
+import { Button } from '../components/button';
+import { useFetch } from '../hooks/useFetch';
 
 const Home: NextPage = () => {
   const [credentials, setCredentials] = useState({ email: '', password: '' });
-  const [errors, setErrors] = useState({ email: '', password: '' });
-  const authenticate = useAuthStore(selectAuthenticate);
-  const isAuthenticating = useAuthStore(selectIsAuthenticating);
+  const [{ isLoading, error, response }, call] = useFetch<any>('/api/auth/login');
   const router = useRouter();
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setCredentials({ ...credentials, [event.target.name]: event.target.value });
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    authenticate(credentials.email, credentials.password).then((e) => {
-      router.push('/');
-    });
-  };
-
-  const { email, password } = credentials;
   return (
-    <Box w="100%" h="100%" display="flex" justifyContent="center" alignItems="center">
-      <form onSubmit={handleSubmit}>
-        <Modal>
-          <Box display={'flex'} gap={8} flexDirection={'column'} p={4}>
-            <FormControl isInvalid={!!errors.email}>
-              <FormLabel>Email</FormLabel>
-              <Input type="email" name="email" value={email} onChange={handleChange} />
-              {!errors.email ? <FormHelperText></FormHelperText> : <FormErrorMessage>{errors.email}</FormErrorMessage>}
-            </FormControl>
-            <FormControl isInvalid={!!errors.password}>
-              <FormLabel>Password</FormLabel>
-              <Input type="password" name="password" value={password} onChange={handleChange} />
-              {!!errors.password ? <FormHelperText></FormHelperText> : <FormErrorMessage>Email is required.</FormErrorMessage>}
-            </FormControl>
-            <Box display={'flex'} justifyContent="center" gap={4}>
-              <Button w="100%" bg="gray.500" color={'white'} type="submit" isLoading={isAuthenticating}>
-                login
-              </Button>
-            </Box>
-          </Box>
-        </Modal>
-      </form>
-    </Box>
+    <Page center>
+      <Surface>
+        <Styled.Form action="/api/auth/login" method="POST">
+          <Text size="xLarge">Login</Text>
+          <Inputter.InputGroup>
+            <Inputter.Label>Email</Inputter.Label>
+            <Inputter.InputField name="email" onChange={handleChange} value={credentials.email} />
+            {/* <Inputter.Description>this is a description</Inputter.Description> */}
+          </Inputter.InputGroup>
+          <Inputter.InputGroup>
+            <Inputter.Label>Password</Inputter.Label>
+            <Inputter.InputField name="password" type="password" onChange={handleChange} value={credentials.password} />
+            {/* <Inputter.Description>this is a description</Inputter.Description> */}
+          </Inputter.InputGroup>
+          <Styled.Buttons>
+            <Button isLoading={isLoading} width="full">
+              Login
+            </Button>
+          </Styled.Buttons>
+        </Styled.Form>
+      </Surface>
+    </Page>
   );
 };
 

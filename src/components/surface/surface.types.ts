@@ -1,5 +1,5 @@
 import React from 'react';
 
-export interface IPageWrapperProps {
+export interface ISurfaceProps {
   children: React.ReactNode;
 }

@@ -1,8 +1,15 @@
 export interface ITheme {
   colors: IColor;
-  borderRadius: '8px';
+  borderRadius: string;
   padding: IPadding;
   font: IFont;
+  shadow: IShadow;
+}
+
+export interface IShadow {
+  low: string;
+  medium: string;
+  high: string;
 }
 
 export interface IColor {
@@ -12,6 +19,7 @@ export interface IColor {
   surface: string;
   text: string;
   activeText: string;
+  shadowColor: string;
 }
 
 export interface IPadding {

@@ -1,4 +1,10 @@
-import { IInputProps } from './input.types';
+import { IInputGroupProps } from './input.types';
 import * as Styled from './input.styled';
 
-export const Input = (props: IInputProps) => {};
+export const InputGroup = ({ children }: IInputGroupProps) => {
+  return <Styled.Container>{children}</Styled.Container>;
+};
+
+export const InputField = Styled.Input;
+export const Label = Styled.Label;
+export const Description = Styled.Description;
