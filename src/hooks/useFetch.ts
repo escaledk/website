@@ -3,17 +3,12 @@ import axios, { AxiosRequestConfig } from 'axios';
 
 interface IUserFetchState<T> {
   isLoading: boolean;
-  response: {
-    statusCode: number;
-    body: T;
-  } | null;
-  error: Error | null;
+  data: T | null;
 }
 
 const init: IUserFetchState<any> = {
   isLoading: false,
-  response: null,
-  error: null,
+  data: null,
 };
 
 export function useFetch<T>(url: string): [state: IUserFetchState<any>, execute: (options: AxiosRequestConfig<T>) => Promise<Response | undefined>] {

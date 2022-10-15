@@ -1,5 +1,5 @@
 import { Middleware } from 'next-api-middleware';
-import { InvalidHttpMethodError } from '../errors/InvalidHttpMethodError';
+import { InvalidHttpMethodError } from '../errors/http/InvalidHttpMethodError';
 
 export const HttpMethodMiddleware =
   (methods: string[]): Middleware =>

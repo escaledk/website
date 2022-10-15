@@ -25,6 +25,10 @@ const items: IMenubarItem[] = [
     link: '/departments',
     text: 'Departments',
   },
+  {
+    link: '/invoices',
+    text: 'Invoices',
+  },
 ];
 
 function MyApp({ Component, pageProps: { session, ...pageProps }, user }: any) {

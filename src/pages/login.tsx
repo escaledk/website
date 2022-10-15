@@ -1,5 +1,5 @@
 import type { GetServerSideProps, NextPage } from 'next';
-import { useRouter } from 'next/router';
+import { Router, useRouter } from 'next/router';
 import React, { useState } from 'react';
 import * as Styled from '../styles/login.styles';
 import { Surface } from '../components/surface';
@@ -11,11 +11,12 @@ import * as Inputter from '../components/input';
 import { Button } from '../components/button';
 import { useFetch } from '../hooks/useFetch';
 
+// TODO Manage error
+
 const Home: NextPage = () => {
   const [credentials, setCredentials] = useState({ email: '', password: '' });
-  const [{ isLoading, error, response }, call] = useFetch<any>('/api/auth/login');
+  const [{ isLoading }, call] = useFetch<any>('/api/auth/login');
   const router = useRouter();
-
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setCredentials({ ...credentials, [event.target.name]: event.target.value });
   };
@@ -23,7 +24,21 @@ const Home: NextPage = () => {
   return (
     <Page center>
       <Surface shadow="high" padding={8}>
-        <Styled.Form action="/api/auth/login" method="POST">
+        <Styled.Form
+          action="/api/auth/login"
+          method="POST"
+          onSubmit={async (event) => {
+            event.preventDefault();
+            if (isLoading) return;
+            const response = await call({
+              data: credentials,
+              method: 'POST',
+            });
+            if (response?.status === 200) {
+              router.push('/');
+            }
+          }}
+        >
           <Text size="xLarge">Login</Text>
           <Inputter.InputGroup>
             <Inputter.Label>Email</Inputter.Label>

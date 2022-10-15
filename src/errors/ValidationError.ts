@@ -1,4 +1,6 @@
-export class HttpValidationError extends Error {
+import { CustomError } from './CustomError';
+
+export class HttpValidationError extends CustomError {
   public type = HttpValidationError.name;
   constructor(message: string) {
     super(message);

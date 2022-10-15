@@ -1,6 +1,10 @@
+import { ICustomer } from './ICustomer';
+
 export interface IInvoice {
   id: string;
+  invoiceId: string;
   carReg: string;
-  amount: number;
-  date: number;
+  products: string[];
+  customer: ICustomer;
+  createdAt: number;
 }
