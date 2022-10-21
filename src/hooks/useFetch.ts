@@ -11,7 +11,7 @@ const init: IUserFetchState<any> = {
   data: null,
 };
 
-export function useFetch<T>(url: string): [state: IUserFetchState<any>, execute: (options: AxiosRequestConfig<T>) => Promise<Response | undefined>] {
+export function useFetch<T>(url?: string): [state: IUserFetchState<any>, execute: (options: AxiosRequestConfig<T>) => Promise<Response | undefined>] {
   const [state, setState] = useState<IUserFetchState<T>>(init);
 
   const execute = async (options: AxiosRequestConfig<any>) => {
@@ -24,8 +24,7 @@ export function useFetch<T>(url: string): [state: IUserFetchState<any>, execute:
     try {
       if (state.isLoading) return;
 
-      const res = await axios(url, options);
-      console.log(res);
+      const res = await axios({ ...options, url: url && options.url });
       setState((state) => ({
         ...state,
         isLoading: false,
@@ -38,7 +37,6 @@ export function useFetch<T>(url: string): [state: IUserFetchState<any>, execute:
 
       return res as any;
     } catch (error) {
-      console.log(error);
       setState((state) => ({
         ...state,
         isLoading: false,

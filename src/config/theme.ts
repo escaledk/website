@@ -2,8 +2,8 @@ import { IColor, IFont, IPadding, IShadow, ITheme } from '../interfaces/ITheme';
 import tinyColor from 'tinycolor2';
 
 const colors: IColor = {
-  backgroundColor: '#F2F2F4',
   primary: '#1D7DC0',
+  backgroundColor: '#F2F2F4',
   secondary: '#749BC9',
   surface: '#FFFFFF',
   text: '#333333',

@@ -2,13 +2,13 @@ import type { GetServerSideProps, NextPage } from 'next';
 import { Router, useRouter } from 'next/router';
 import React, { useState } from 'react';
 import * as Styled from '../styles/login.styles';
-import { Surface } from '../components/surface';
-import { Text } from '../components/text';
-import { Page } from '../components/page';
+import { Surface } from '../components/atoms/surface';
+import { Text } from '../components/atoms/text';
+import { Page } from '../components/atoms/page';
 
 import { withPageRedirectMiddleware } from '../middlewares/PageRedirectMiddleware';
-import * as Inputter from '../components/input';
-import { Button } from '../components/button';
+import * as Inputter from '../components/atoms/input';
+import { Button } from '../components/atoms/button';
 import { useFetch } from '../hooks/useFetch';
 
 // TODO Manage error

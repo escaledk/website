@@ -1,8 +1,7 @@
-export interface IUser {
+export interface IEmployee {
   id: string;
-  email: string;
   firstname: string;
-  companyId: string;
+  email: string;
   lastname: string | null;
   phone: string | null;
 }

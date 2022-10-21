@@ -5,7 +5,8 @@ import { PrismaClient, User } from '@prisma/client';
 const prisma = new PrismaClient();
 
 async function main() {
-  await Promise.all([prisma.company.deleteMany({}), prisma.user.deleteMany({})]);
+  await prisma.user.deleteMany({});
+  await prisma.company.deleteMany({});
 
   const companyId = faker.datatype.uuid();
   const company = await prisma.company.upsert({

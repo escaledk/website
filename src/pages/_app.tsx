@@ -3,13 +3,14 @@ import { ThemeProvider } from 'styled-components';
 import { GlobalStyles, Container, Content } from '../styles/global.styles';
 import 'animate.css';
 import { theme } from '../config/theme';
-import { IMenubarItem } from '../components/menubar/menubar.types';
-import { Menubar } from '../components/menubar';
+import { IMenubarItem } from '../components/organisms/menubar/menubar.types';
+import { Menubar } from '../components/organisms/menubar';
 import { withIronSessionSsr } from 'iron-session/next/dist';
 import { getIronSession } from 'iron-session';
 import App, { AppContext } from 'next/app';
 import { sessionConfig } from '../config/session';
 import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 
 // TODO: add the items to the database
 const items: IMenubarItem[] = [
@@ -29,7 +30,16 @@ const items: IMenubarItem[] = [
     link: '/invoices',
     text: 'Invoices',
   },
-];
+  {
+    link: '/employees',
+    text: 'Employees',
+  },
+].sort((a, b) => {
+  if (a.text > b.text) {
+    return 1;
+  }
+  return -1;
+});
 
 function MyApp({ Component, pageProps: { session, ...pageProps }, user }: any) {
   const isAuthenticated = !!user;

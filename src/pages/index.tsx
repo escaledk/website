@@ -1,9 +1,9 @@
 import type { GetServerSideProps, NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
-import { Grid } from '../components/grid';
-import { Surface } from '../components/surface';
-import { Text } from '../components/text';
+import { Grid } from '../components/atoms/grid';
+import { Surface } from '../components/atoms/surface';
+import { Text } from '../components/atoms/text';
 import { withPageSessionMiddleware } from '../middlewares/PageSessionMiddleware';
 
 const Home: NextPage = () => {
