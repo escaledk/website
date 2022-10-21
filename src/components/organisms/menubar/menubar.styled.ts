@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { getHoverColor, themeBorderRadiusSelector, themeColorSelector, themePaddingSelector, themeShadowSelector } from '../../../config/theme';
+import { themeBorderRadiusSelector, themeColorSelector, themePaddingSelector, themeShadowSelector } from '../../../config/theme';
 
 const getWidth = ({ open = false }) => (open ? '200px' : '10px');
 
@@ -13,6 +13,8 @@ export const Container = styled.div<{ open: boolean }>`
 
   padding: ${(props) => `0px ${themePaddingSelector(2)(props)}`};
   box-shadow: ${themeShadowSelector('low')};
+  border-right: 1px solid ${themeColorSelector('borderPassive')};
+  z-index: 1;
 `;
 
 export const Item = styled.a<{ isActive: boolean }>`
@@ -32,7 +34,7 @@ export const Item = styled.a<{ isActive: boolean }>`
 
   &:hover {
     cursor: pointer;
-    background-color: ${(props) => !props.isActive && getHoverColor('white')};
+    background-color: ${(props) => !props.isActive && themeColorSelector('borderActive')};
   }
 `;
 

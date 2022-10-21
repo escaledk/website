@@ -1,9 +1,8 @@
 import styled from 'styled-components';
-import { getHoverColor, themeBorderRadiusSelector, themeColorSelector, themePaddingSelector, themeShadowSelector } from '../../../config/theme';
+import { themeBorderRadiusSelector, themeColorSelector, themePaddingSelector } from '../../../config/theme';
 import tinycolor from 'tinycolor2';
 
 const coloredRowColor = new tinycolor('lightGray').lighten(15).toHex().padStart(7, '#');
-const hoverColor = getHoverColor('white');
 
 export const Table = styled.table`
   width: 100%;
@@ -13,6 +12,7 @@ export const Table = styled.table`
 
   border-radius: ${themeBorderRadiusSelector};
   overflow: hidden;
+  border: 1px solid ${themeColorSelector('borderPassive')};
 `;
 
 export const Columns = styled.thead`
@@ -38,7 +38,7 @@ export const Row = styled.tr`
   transition: all 0.1s ease-in-out;
 
   &:not([data-type='head']):hover {
-    background-color: ${hoverColor};
+    background-color: ${themeColorSelector('borderActive')};
     cursor: pointer;
   }
 `;

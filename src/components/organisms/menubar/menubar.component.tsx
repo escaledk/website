@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import Link from '../../atoms/link/link.component';
+import { Link } from '../../atoms/link';
 import * as Styled from './menubar.styled';
 import { IMenubarProps } from './menubar.types';
 

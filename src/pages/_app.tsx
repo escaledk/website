@@ -5,12 +5,10 @@ import 'animate.css';
 import { theme } from '../config/theme';
 import { IMenubarItem } from '../components/organisms/menubar/menubar.types';
 import { Menubar } from '../components/organisms/menubar';
-import { withIronSessionSsr } from 'iron-session/next/dist';
 import { getIronSession } from 'iron-session';
 import App, { AppContext } from 'next/app';
 import { sessionConfig } from '../config/session';
 import { useRouter } from 'next/router';
-import { useEffect } from 'react';
 
 // TODO: add the items to the database
 const items: IMenubarItem[] = [
@@ -49,7 +47,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps }, user }: any) {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-      <NextNProgress color={theme.colors.primary} height={4} />
+      <NextNProgress color={theme.colors.primary} showOnShallow={false} height={4} />
       <Container>
         {showMenu && <Menubar items={items} />}
         <Content>

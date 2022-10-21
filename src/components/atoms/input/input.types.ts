@@ -8,5 +8,5 @@ export interface IInputFieldProps {
 }
 
 export interface IInputGroupProps {
-  children: React.ReactNode[];
+  children: React.ReactNode[] | React.ReactNode;
 }

@@ -20,6 +20,8 @@ export interface IColor {
   text: string;
   activeText: string;
   shadowColor: string;
+  borderActive: string;
+  borderPassive: string;
 }
 
 export interface IPadding {
@@ -29,6 +31,17 @@ export interface IPadding {
 }
 
 export interface IFont {
+  weight: IFontWeight;
+  size: IFontSize;
+}
+
+export interface IFontWeight {
+  normal: 'normal';
+  bold: 'bold';
+  bolder: 'bolder';
+}
+
+export interface IFontSize {
   small: '0.833rem';
   regular: '1rem';
   large: '1.2rem';

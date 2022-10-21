@@ -3,7 +3,7 @@ import {
   getHoverColor,
   themeBorderRadiusSelector,
   themeColorSelector,
-  themeFontSelector,
+  themeFontSizeSelector,
   themePaddingSelector,
   themeShadowSelector,
 } from '../../../config/theme';
@@ -57,16 +57,11 @@ const variantSelector = (props: IButtonStyledProps) => {
 export const Button = styled.button<IButtonStyledProps>`
   width: ${(props) => (props.width === 'full' ? '100%' : 'fit-content')};
   border-radius: ${themeBorderRadiusSelector};
-  font-size: ${themeFontSelector('regular')};
+  font-size: ${themeFontSizeSelector('regular')};
   transition: all 0.3s ease-in-out;
   ${variantSelector}
 
   &:hover {
     cursor: pointer;
-    box-shadow: ${themeShadowSelector('medium')};
-  }
-
-  &:focus {
-    outline: auto;
   }
 `;

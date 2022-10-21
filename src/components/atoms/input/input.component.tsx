@@ -6,5 +6,5 @@ export const InputGroup = ({ children }: IInputGroupProps) => {
 };
 
 export const InputField = Styled.Input;
-export const Label = Styled.Label;
+export const InputLabel = Styled.Label;
 export const Description = Styled.Description;

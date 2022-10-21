@@ -4,7 +4,7 @@ import * as Styled from './button.styled';
 import { Loader } from '../loader';
 import { theme } from '../../../config/theme';
 
-export const Button = ({ children, isLoading, variant = 'filled', width = 'fit', onClick }: IButtonProps) => {
+export const Button = ({ children = 'Button', isLoading, variant = 'filled', width = 'fit', onClick }: IButtonProps) => {
   const loaderColors = {
     filled: 'white',
     ghost: theme.colors.primary,

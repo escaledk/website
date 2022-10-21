@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { getHoverColor, themeBorderRadiusSelector, themeColorSelector, themeFontSelector, themePaddingSelector } from '../../../config/theme';
+import { getHoverColor, themeBorderRadiusSelector, themeColorSelector, themeFontSizeSelector, themePaddingSelector } from '../../../config/theme';
 import { IInputFieldProps } from './input.types';
 
 export const Container = styled.div`
@@ -14,7 +14,7 @@ export const Input = styled.input<IInputFieldProps>`
   border-style: solid;
 
   border-radius: ${themeBorderRadiusSelector};
-  font-size: ${themeFontSelector('regular')};
+  font-size: ${themeFontSizeSelector('regular')};
   padding: ${themePaddingSelector(2)};
   color: ${themeColorSelector('text')};
 
@@ -24,7 +24,7 @@ export const Input = styled.input<IInputFieldProps>`
 `;
 
 export const Description = styled.div`
-  font-size: ${themeFontSelector('small')};
+  font-size: ${themeFontSizeSelector('small')};
 `;
 
 export const InputGroup = styled.div`
@@ -34,6 +34,6 @@ export const InputGroup = styled.div`
 `;
 
 export const Label = styled.label`
-  font-size: ${themeFontSelector('large')};
+  font-size: ${themeFontSizeSelector('large')};
   color: ${themeColorSelector('text')};
 `;

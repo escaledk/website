@@ -1,8 +1,15 @@
-import { IFont } from '../../../interfaces/ITheme';
+import { IFontSize, IFontWeight } from '../../../interfaces/ITheme';
 
 export interface ITextStyledProps {
-  size?: keyof IFont;
+  width?: 'full';
+  size: keyof IFontSize;
+  weight: keyof IFontWeight;
   children?: string;
 }
 
-export interface ITextProps extends ITextStyledProps {}
+export interface ITextProps {
+  width?: 'full';
+  size?: keyof IFontSize;
+  weight?: keyof IFontWeight;
+  children?: string;
+}
