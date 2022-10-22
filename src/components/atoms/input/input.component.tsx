@@ -1,5 +1,5 @@
-import { IInputGroupProps } from './input.types';
-import * as Styled from './input.styled';
+import { IInputGroupProps } from './Input.types';
+import * as Styled from './Input.styled';
 
 export const InputGroup = ({ children }: IInputGroupProps) => {
   return <Styled.Container>{children}</Styled.Container>;

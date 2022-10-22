@@ -1,5 +1,5 @@
-import { ITableProps } from './table.types';
-import * as Styled from './table.styled';
+import { ITableProps } from './Table.types';
+import * as Styled from './Table.styled';
 import { useMemo } from 'react';
 
 export function Table<T>({ columns, data, onClick, spacing }: ITableProps<T>) {

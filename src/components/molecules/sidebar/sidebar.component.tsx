@@ -1,7 +1,7 @@
 import { FunctionComponent } from 'react';
-import { ISidebarProps } from './sidebar.types';
+import { ISidebarProps } from './Sidebar.types';
 import { Text } from '../../atoms/text';
-import * as Styled from './sidebar.styled';
+import * as Styled from './Sidebar.styled';
 import { IoCloseOutline } from 'react-icons/io5';
 
 export const Sidebar: FunctionComponent<ISidebarProps> = ({ isOpen, onClose, title, children }) => {

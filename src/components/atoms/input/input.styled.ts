@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { getHoverColor, themeBorderRadiusSelector, themeColorSelector, themeFontSizeSelector, themePaddingSelector } from '../../../config/theme';
-import { IInputFieldProps } from './input.types';
+import { IInputFieldProps } from './Input.types';
 
 export const Container = styled.div`
   width: 100%;

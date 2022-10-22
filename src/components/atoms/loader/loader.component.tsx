@@ -1,4 +1,4 @@
-import * as Styled from './loader.styled';
+import * as Styled from './Loader.styled';
 import { AiOutlineLoading3Quarters } from 'react-icons/ai';
 
 export const Loader = ({ color = 'white' }) => {

@@ -6,7 +6,7 @@ import { HttpErrorMiddleware } from '../../../middlewares/HttpErrorMiddleware';
 import { HttpMethodMiddleware } from '../../../middlewares/HttpMethodMiddleware';
 import { withApiSessionMiddleware } from '../../../middlewares/ApiSessionMiddleware';
 import { HttpValidationMiddleware } from '../../../middlewares/HttpValidationMiddleware';
-import { LoginBody } from '../../../dto/loginBody.dto';
+import { LoginBody } from '../../../dto/LoginBody.dto';
 import { authenticate } from '../../../services/authentication.service';
 
 // const cookieExpirationDate = 1000 * 60 * 60 * 24 * 2;

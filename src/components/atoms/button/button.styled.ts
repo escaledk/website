@@ -7,7 +7,7 @@ import {
   themePaddingSelector,
   themeShadowSelector,
 } from '../../../config/theme';
-import { IButtonStyledProps } from './button.types';
+import { IButtonStyledProps } from './Button.types';
 
 const filledVariant = css`
   background-color: ${themeColorSelector('primary')};

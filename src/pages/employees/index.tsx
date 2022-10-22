@@ -7,7 +7,7 @@ import { BasicContentLayout, BasicHeaderLayout, BasicLayout } from '../../layout
 import { Text } from '../../components/atoms/text';
 import * as Styled from '../../styles/employees.styled';
 import { Button } from '../../components/atoms/button';
-import { Sidebar, SidebarContent } from '../../components/molecules/sidebar/sidebar.component';
+import { Sidebar, SidebarContent } from '../../components/molecules/sidebar/Sidebar.component';
 import { InputField, InputGroup, InputLabel } from '../../components/atoms/input';
 import { Table } from '../../components/atoms/table';
 

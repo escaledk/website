@@ -1,5 +1,5 @@
-import * as Styled from './text.styled';
-import { ITextProps } from './text.types';
+import * as Styled from './Text.styled';
+import { ITextProps } from './Text.types';
 
 export const Text = ({ size = 'regular', weight = 'normal', children, width }: ITextProps) => {
   return (

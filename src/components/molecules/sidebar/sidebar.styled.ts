@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import { themeColorSelector, themePaddingSelector, themeShadowSelector } from '../../../config/theme';
-import { IStyledSidebarContentProps, IStyledSidebarProps } from './sidebar.types';
+import { IStyledSidebarContentProps, IStyledSidebarProps } from './Sidebar.types';
 
 export const Container = styled.aside<IStyledSidebarProps>`
   width: calc(600px - ${themePaddingSelector(2)} * 2);

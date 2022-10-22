@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import { themeBorderRadiusSelector, themeColorSelector, themePaddingSelector, themeShadowSelector } from '../../../config/theme';
-import { ISurfaceProps } from './surface.types';
+import { ISurfaceProps } from './Surface.types';
 
 export const Container = styled.div<ISurfaceProps>`
   padding: ${(props) => themePaddingSelector(props.padding || 2)(props)};

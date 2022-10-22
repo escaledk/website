@@ -1,1 +1,1 @@
-export * from './stepper.component';
+export * from './Stepper.component';

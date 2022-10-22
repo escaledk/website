@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import { Link } from '../../atoms/link';
-import * as Styled from './menubar.styled';
-import { IMenubarProps } from './menubar.types';
+import * as Styled from './Menubar.styled';
+import { IMenubarProps } from './Menubar.types';
 
 export const Menubar = ({ items }: IMenubarProps) => {
   const router = useRouter();

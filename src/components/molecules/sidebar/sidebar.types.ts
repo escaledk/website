@@ -1,6 +1,6 @@
 import { ReactElement } from 'react';
 import { IPadding } from '../../../interfaces/ITheme';
-import { SidebarContent } from './sidebar.styled';
+import { SidebarContent } from './Sidebar.styled';
 
 export interface IStyledSidebarContentProps {
   flexDirection?: 'row' | 'column';

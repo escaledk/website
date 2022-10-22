@@ -1,7 +1,7 @@
 import React from 'react';
-import * as Styled from './link.styled';
+import * as Styled from './Link.styled';
 import NextLink from 'next/link';
-import { ILinkProps } from './link.types';
+import { ILinkProps } from './Link.types';
 
 export const Link = ({ children, link }: ILinkProps) => {
   return (

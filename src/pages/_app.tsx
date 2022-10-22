@@ -3,7 +3,7 @@ import { ThemeProvider } from 'styled-components';
 import { GlobalStyles, Container, Content } from '../styles/global.styles';
 import 'animate.css';
 import { theme } from '../config/theme';
-import { IMenubarItem } from '../components/organisms/menubar/menubar.types';
+import { IMenubarItem } from '../components/organisms/menubar/Menubar.types';
 import { Menubar } from '../components/organisms/menubar';
 import { getIronSession } from 'iron-session';
 import App, { AppContext } from 'next/app';

@@ -1,6 +1,6 @@
-import { IButtonProps } from './button.types';
+import { IButtonProps } from './Button.types';
 import { AiOutlineLoading3Quarters } from 'react-icons/ai';
-import * as Styled from './button.styled';
+import * as Styled from './Button.styled';
 import { Loader } from '../loader';
 import { theme } from '../../../config/theme';
 

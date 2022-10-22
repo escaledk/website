@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { themePaddingSelector } from '../../../config/theme';
-import { IGridItem } from './grid.types';
+import { IGridItem } from './Grid.types';
 
 const Wrapper = styled.div`
   width: calc(100% - ${themePaddingSelector(2)} * 2);

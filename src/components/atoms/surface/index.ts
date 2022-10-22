@@ -1,1 +1,1 @@
-export * from './surface.component';
+export * from './Surface.component';

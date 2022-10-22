@@ -1,6 +1,6 @@
 import { FunctionComponent } from 'react';
-import * as Styled from './basic.styled';
-import { IBasicLayoutProps } from './basic.types';
+import * as Styled from './Basic.styled';
+import { IBasicLayoutProps } from './Basic.types';
 
 export const BasicLayout: FunctionComponent<IBasicLayoutProps> = ({ children }) => {
   return <Styled.Container>{children}</Styled.Container>;

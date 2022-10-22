@@ -1,3 +1,3 @@
-import { IStepperProps } from './stepper.types';
+import { IStepperProps } from './Stepper.types';
 
 export const Stepper = ({}: IStepperProps) => {};

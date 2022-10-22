@@ -1,5 +1,5 @@
-import { ISurfaceProps } from './surface.types';
-import * as Styled from './surface.styled';
+import { ISurfaceProps } from './Surface.types';
+import * as Styled from './Surface.styled';
 
 export const Surface = ({ children, padding, fill = false, shadow }: ISurfaceProps) => {
   return (
