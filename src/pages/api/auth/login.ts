@@ -21,6 +21,8 @@ export const handler = async (req: NextApiRequest, res: NextApiResponse): Promis
     firstname,
     id: userId,
     email: userEmail,
+    lastname: '',
+    phone: '',
   };
 
   await req.session.save();

@@ -11,6 +11,7 @@ export interface IStyledSidebarContentProps {
 
 export interface IStyledSidebarProps {
   isOpen: boolean;
+  width?: string | number;
 }
 
 export interface ISidebarProps extends IStyledSidebarProps {

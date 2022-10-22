@@ -4,11 +4,11 @@ import { Text } from '../../atoms/text';
 import * as Styled from './Sidebar.styled';
 import { IoCloseOutline } from 'react-icons/io5';
 
-export const Sidebar: FunctionComponent<ISidebarProps> = ({ isOpen, onClose, title, children }) => {
+export const Sidebar: FunctionComponent<ISidebarProps> = ({ isOpen, onClose, title, children, width = '600px' }) => {
   return (
     <>
       {isOpen && <Styled.SidebarBackground onClick={onClose} />}
-      <Styled.Container isOpen={isOpen}>
+      <Styled.Container isOpen={isOpen} width={width}>
         <Styled.SidebarHeader>
           <Text size="xLarge" weight="bold">
             {title}

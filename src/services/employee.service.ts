@@ -1,10 +1,9 @@
-import { User } from '@prisma/client';
+import { Employee } from '@prisma/client';
 import { getPrismaClient } from '../db/prisma';
 import { IEmployee } from '../interfaces/IEmployee';
-import { IUser } from '../interfaces/IUser';
 
 export const getAllEmployeesInCompany = async (companyId: string): Promise<IEmployee[]> => {
-  return await getPrismaClient().user.findMany({
+  return await getPrismaClient().employee.findMany({
     where: { companyId },
     select: {
       id: true,
@@ -17,8 +16,8 @@ export const getAllEmployeesInCompany = async (companyId: string): Promise<IEmpl
   });
 };
 
-export const getEmployeeFromCompany = async (companyId: string, employeeId: string): Promise<User> => {
-  const { password, ...user } = (await getPrismaClient().user.findFirst({
+export const getEmployeeFromCompany = async (companyId: string, employeeId: string): Promise<Employee> => {
+  const { password, ...user } = (await getPrismaClient().employee.findFirst({
     where: { companyId, id: employeeId },
   })) as any;
 

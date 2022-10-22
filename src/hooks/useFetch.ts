@@ -15,6 +15,7 @@ export function useFetch<T>(url?: string): [state: IUserFetchState<any>, execute
   const [state, setState] = useState<IUserFetchState<T>>(init);
 
   const execute = async (options: AxiosRequestConfig<any>) => {
+    console.log('isExecuting');
     setState((state) => ({
       ...state,
       isLoading: true,
@@ -24,7 +25,7 @@ export function useFetch<T>(url?: string): [state: IUserFetchState<any>, execute
     try {
       if (state.isLoading) return;
 
-      const res = await axios({ ...options, url: url && options.url });
+      const res = await axios({ ...options, url: url || options.url });
       setState((state) => ({
         ...state,
         isLoading: false,

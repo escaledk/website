@@ -20,9 +20,17 @@ export const Header = styled.header`
   justify-content: space-between;
 `;
 
+export const HeaderButtons = styled.div`
+  display: flex;
+  gap: ${themePaddingSelector(2)};
+  justify-content: center;
+  align-items: center;
+`;
+
 export const Content = styled.article`
   width: calc(100% - ${themePaddingSelector(2)} * 2);
   height: 100%;
   background-color: ${themeColorSelector('surface')};
   padding: ${themePaddingSelector(2)};
+  overflow-y: auto;
 `;

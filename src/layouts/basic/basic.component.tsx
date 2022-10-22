@@ -8,3 +8,4 @@ export const BasicLayout: FunctionComponent<IBasicLayoutProps> = ({ children }) 
 
 export const BasicHeaderLayout = Styled.Header;
 export const BasicContentLayout = Styled.Content;
+export const BasicHeaderButtonLayout = Styled.HeaderButtons;

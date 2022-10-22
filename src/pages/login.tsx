@@ -21,7 +21,6 @@ const Home: NextPage = () => {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setCredentials({ ...credentials, [event.target.name]: event.target.value });
   };
-
   return (
     <CenteredLayout>
       <CenteredLayoutContent>
@@ -37,6 +36,7 @@ const Home: NextPage = () => {
                   data: credentials,
                   method: 'POST',
                 });
+                console.log({ response });
                 if (response?.status === 200) {
                   router.push('/');
                 }

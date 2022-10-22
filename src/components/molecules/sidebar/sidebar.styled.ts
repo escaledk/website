@@ -3,7 +3,7 @@ import { themeColorSelector, themePaddingSelector, themeShadowSelector } from '.
 import { IStyledSidebarContentProps, IStyledSidebarProps } from './Sidebar.types';
 
 export const Container = styled.aside<IStyledSidebarProps>`
-  width: calc(600px - ${themePaddingSelector(2)} * 2);
+  width: calc(${(props) => (typeof props.width === 'string' ? props.width : props.width + 'px')} - ${themePaddingSelector(2)} * 2);
   height: calc(100vh - ${themePaddingSelector(2)} * 2);
   position: absolute;
   top: 0px;
